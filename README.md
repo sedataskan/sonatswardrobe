@@ -84,10 +84,27 @@ Her kıyafet öğesi şu özelliklere sahiptir:
 interface Item {
   id: string; // Benzersiz tanımlayıcı
   name: string; // Kıyafet adı
+  type:
+    | "shirt"
+    | "pants"
+    | "bag"
+    | "shoes"
+    | "boots"
+    | "dress"
+    | "skirt"
+    | "jacket"
+    | "sweater"
+    | "sneaker"
+    | "bodysuit"
+    | "blouse"
+    | "t-shirt"
+    | "shorts"
+    | "hoodie"
+    | "coat";
   category: "top" | "bottom" | "bag" | "shoes";
-  thickness: "ince" | "orta" | "kalın";
-  length: "kısa" | "orta" | "uzun";
-  season: ("ilkbahar" | "yaz" | "sonbahar" | "kış")[];
+  thickness: "thin" | "medium" | "thick";
+  length: "short" | "medium" | "long";
+  season: ("spring" | "summer" | "autumn" | "winter")[];
   location: string; // Konum (ev, iş, okul vb.)
   image: string; // Görsel yolu
 }
@@ -118,13 +135,9 @@ npm run lint
 
 ## 🔮 Gelecek Özellikler
 
-- [ ] Yeni kıyafet ekleme formu
-- [ ] Kıyafet düzenleme/silme işlemleri
-- [ ] Görsel yükleme özelliği
 - [ ] Kombin önerileri
 - [ ] Mobil uygulama desteği
-- [ ] Veritabanı entegrasyonu
-- [ ] Kullanıcı hesapları
+- [ ] Kıyafet paylaşım özelliği
 
 ## 🤝 Katkıda Bulunma
 
