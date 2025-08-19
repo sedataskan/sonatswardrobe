@@ -1,0 +1,208 @@
+@import "tailwindcss";
+
+:root {
+  /* Fashion-forward light theme */
+  --background: #f7f4ef50; /* warm off-white */
+  --foreground: #1c1917; /* rich espresso */
+  --surface: #fffdfa; /* subtle card bg */
+  --muted: #6b7280; /* neutral text */
+  --border: #e6e0d8; /* warm border */
+  --accent: #3b0b8e; /* violet */
+  --font-display: var(--font-display);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Fashion-forward dark theme */
+    --background: #0f0e0d; /* inky espresso */
+    --foreground: #ede9e2; /* soft linen */
+    --surface: #171513; /* card bg */
+    --muted: #a8a29e; /* neutral */
+    --border: #2b2a28; /* subtle border */
+    --accent: #a78bfa; /* violet-400 */
+  }
+}
+
+/* Base */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  /* modern UI sans stack fallback */
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  transition: background-color 0.3s ease, color 0.3s ease;
+  color-scheme: light dark;
+}
+
+/* Logo/Title display font */
+.logo-title {
+  font-family: var(--font-display), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  letter-spacing: -0.015em;
+}
+
+/* Token utilities (so you can use classes like text-foreground) */
+.text-foreground { color: var(--foreground); }
+.bg-background { background-color: var(--background); }
+.bg-surface { background-color: var(--surface); }
+.text-muted { color: var(--muted); }
+.border-border { border-color: var(--border); }
+.text-accent { color: var(--accent); }
+.bg-accent { background-color: var(--accent); }
+
+/* Nice text selection */
+::selection {
+  background: var(--accent);
+  color: white;
+}
+
+/* Glass (liquid) container - adjusted for readability */
+.glass-card {
+  background: rgba(255, 255, 255, 0.464);
+  border: 1px solid rgba(230, 224, 216, 0.9);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* Glass effect for header */
+.glass {
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.1), 
+    rgba(255, 255, 255, 0.05)
+  ) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 
+    0 8px 32px 0 rgba(31, 38, 135, 0.15),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.2) !important;
+  border-radius: 12px !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .glass-card {
+    background: rgba(151, 148, 144, 0.6);
+    border-color: rgba(80, 76, 70, 0.8);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+  }
+  
+  .glass {
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.05), 
+      rgba(255, 255, 255, 0.02)
+    ) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 
+      0 8px 32px 0 rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.1) !important;
+  }
+}
+
+/* High-contrast form controls */
+.form-label { color: #374151; }
+@media (prefers-color-scheme: dark) { .form-label { color: #e5e7eb; } }
+
+.form-select {
+  display: block;
+  width: 100%;
+  height: 2.5rem; /* 40px */
+  padding: 0 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d1d5db;
+  background-color: #ffffff;
+  color: #416ac4;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+.form-select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent); }
+
+@media (prefers-color-scheme: dark) {
+  .form-select {
+    border-color: #4b5563;
+    background-color: rgba(255,255,255,0.08);
+    color: #f3f4f6;
+  }
+}
+
+input[type="checkbox"] { accent-color: var(--accent); }
+
+/* Floating Label Select Styles */
+.floating-select-container {
+  position: relative;
+  width: 100%;
+}
+
+.floating-select {
+  display: block;
+  width: 100%;
+  height: 3.5rem;
+  padding: 1.25rem 2.5rem 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d1d5db;
+  background-color: #ffffff;
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  color: #f7f4ef;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+}
+
+.floating-select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+.floating-label {
+  position: absolute;
+  left: 0.75rem;
+  top: 1.75rem;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  font-size: 0.875rem;
+  font-weight: 400;
+  transition: all 0.15s ease-in-out;
+  pointer-events: none;
+  background: transparent;
+  z-index: 1;
+}
+
+/* Active state for floating label */
+.floating-select:focus + .floating-label,
+.floating-select.has-value + .floating-label {
+  top: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--accent);
+  background: #ffffff;
+  padding: 0 0.25rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .floating-select {
+    border-color: #4b5563;
+    background-color: none;
+    color: #4b5563;
+  }
+  
+  .floating-label {
+    color: #6b7280;
+  }
+  
+  .floating-select:focus + .floating-label,
+  .floating-select.has-value + .floating-label {
+    background: none;
+    color: var(--accent);
+  }
+}
+
+/* Multiselect helper (works with .form-select) */
+.form-multiselect {
+  height: auto;
+  min-height: 2.5rem;
+  padding-top: 0.375rem; /* 6px */
+  padding-bottom: 0.375rem;
+}

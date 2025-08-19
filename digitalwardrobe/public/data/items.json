@@ -1,0 +1,122 @@
+[
+  {
+    "id": "t1",
+    "name": "Beyaz Tişört",
+    "category": "top",
+    "thickness": "ince",
+    "length": "kısa",
+    "season": ["yaz", "ilkbahar"],
+    "location": "ev",
+    "image": "/shirt.svg"
+  },
+  {
+    "id": "t2",
+    "name": "Sweatshirt",
+    "category": "top",
+    "thickness": "orta",
+    "length": "orta",
+    "season": ["sonbahar", "kış"],
+    "location": "okul",
+    "image": "/shirt.svg"
+  },
+  {
+    "id": "t3",
+    "name": "Yün Kazak",
+    "category": "top",
+    "thickness": "kalın",
+    "length": "uzun",
+    "season": ["kış"],
+    "location": "iş",
+    "image": "/shirt.svg"
+  },
+  {
+    "id": "b1",
+    "name": "Kot Pantolon",
+    "category": "bottom",
+    "thickness": "orta",
+    "length": "uzun",
+    "season": ["ilkbahar", "sonbahar", "kış"],
+    "location": "iş",
+    "image": "/pants.svg"
+  },
+  {
+    "id": "b2",
+    "name": "Şort",
+    "category": "bottom",
+    "thickness": "ince",
+    "length": "kısa",
+    "season": ["yaz"],
+    "location": "ev",
+    "image": "/pants.svg"
+  },
+  {
+    "id": "b3",
+    "name": "Eşofman Altı",
+    "category": "bottom",
+    "thickness": "orta",
+    "length": "uzun",
+    "season": ["ilkbahar", "sonbahar"],
+    "location": "spor",
+    "image": "/pants.svg"
+  },
+  {
+    "id": "g1",
+    "name": "Sırt Çantası",
+    "category": "bag",
+    "thickness": "orta",
+    "length": "orta",
+    "season": ["yaz", "ilkbahar", "sonbahar", "kış"],
+    "location": "okul",
+    "image": "/bag.svg"
+  },
+  {
+    "id": "g2",
+    "name": "Omuz Çantası",
+    "category": "bag",
+    "thickness": "ince",
+    "length": "kısa",
+    "season": ["yaz", "ilkbahar", "sonbahar"],
+    "location": "iş",
+    "image": "/bag.svg"
+  },
+  {
+    "id": "g3",
+    "name": "Küçük Çanta",
+    "category": "bag",
+    "thickness": "ince",
+    "length": "kısa",
+    "season": ["yaz"],
+    "location": "gece",
+    "image": "/bag.svg"
+  },
+  {
+    "id": "s1",
+    "name": "Spor Ayakkabı",
+    "category": "shoes",
+    "thickness": "orta",
+    "length": "orta",
+    "season": ["ilkbahar", "yaz", "sonbahar"],
+    "location": "spor",
+    "image": "/shoes.svg"
+  },
+  {
+    "id": "s2",
+    "name": "Bot",
+    "category": "shoes",
+    "thickness": "kalın",
+    "length": "uzun",
+    "season": ["kış"],
+    "location": "iş",
+    "image": "/shoes.svg"
+  },
+  {
+    "id": "s3",
+    "name": "Sandalet",
+    "category": "shoes",
+    "thickness": "ince",
+    "length": "kısa",
+    "season": ["yaz"],
+    "location": "ev",
+    "image": "/shoes.svg"
+  }
+]
