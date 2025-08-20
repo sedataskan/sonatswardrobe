@@ -1,0 +1,10 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Burgundy circle background -->
+  <circle cx="16" cy="16" r="16" fill="#800020"/>
+  
+  <!-- Inner circle for depth -->
+  <circle cx="16" cy="16" r="12" fill="#A0002A" opacity="0.8"/>
+  
+  <!-- Small highlight for modern look -->
+  <circle cx="12" cy="10" r="3" fill="white" opacity="0.2"/>
+</svg>
