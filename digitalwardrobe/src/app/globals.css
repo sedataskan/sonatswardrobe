@@ -1,36 +1,81 @@
 @import "tailwindcss";
 
+/* Force CSS variables to override Tailwind */
+@layer base {
+  html {
+    background-color: var(--background) !important;
+    color: var(--foreground) !important;
+  }
+  
+  body {
+    background-color: var(--background) !important;
+    color: var(--foreground) !important;
+  }
+  
+  * {
+    border-color: var(--border);
+  }
+}
+
+/* Tailwind utility overrides */
+@layer utilities {
+  .bg-white { background-color: var(--surface) !important; }
+  .bg-gray-50 { background-color: var(--surface) !important; }
+  .bg-gray-100 { background-color: var(--surface) !important; }
+  .bg-gray-200 { background-color: var(--surface) !important; }
+  .text-black { color: var(--foreground) !important; }
+  .text-gray-900 { color: var(--foreground) !important; }
+  .text-gray-800 { color: var(--foreground) !important; }
+  .text-gray-600 { color: var(--muted) !important; }
+  .text-foreground { color: var(--foreground) !important; }
+  .text-gray-500 { color: var(--muted) !important; }
+  .border-gray-200 { border-color: var(--border) !important; }
+  .border-gray-300 { border-color: var(--border) !important; }
+}
+
 :root {
-  /* Fashion-forward light theme */
-  --background: #f7f4ef50; /* warm off-white */
-  --foreground: #1c1917; /* rich espresso */
-  --surface: #fffdfa; /* subtle card bg */
-  --muted: #6b7280; /* neutral text */
-  --border: #e6e0d8; /* warm border */
-  --accent: #3b0b8e; /* violet */
+  /* Elegant burgundy & cream theme */
+  --background: #faf8f5; /* soft cream white */
+  --foreground: #7d1538; /* deep burgundy text */
+  --surface: #ffffff; /* pure white surface */
+  --muted: #8b5a6b; /* muted burgundy */
+  --border: #d4b5c0; /* light burgundy border */
+  --accent: #b8860b; /* warm gold accent */
   --font-display: var(--font-display);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* Fashion-forward dark theme */
-    --background: #0f0e0d; /* inky espresso */
-    --foreground: #ede9e2; /* soft linen */
-    --surface: #171513; /* card bg */
-    --muted: #a8a29e; /* neutral */
-    --border: #2b2a28; /* subtle border */
-    --accent: #a78bfa; /* violet-400 */
+    /* Softer dark burgundy & cream theme */
+    --background: #f5f2ef; /* even softer cream */
+    --foreground: #6b1229; /* slightly lighter burgundy */
+    --surface: #fefcfa; /* off-white surface */
+    --muted: #7a4d5e; /* softer muted burgundy */
+    --border: #c8a2b0; /* lighter burgundy border */
+    --accent: #d4af37; /* elegant gold */
   }
 }
 
-/* Base */
-body {
-  background: var(--background);
+/* Base - Light burgundy & cream theme */
+html, body {
+  background: var(--background) !important;
+  background-color: var(--background) !important;
   color: var(--foreground);
   /* modern UI sans stack fallback */
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
   transition: background-color 0.3s ease, color 0.3s ease;
-  color-scheme: light dark;
+  color-scheme: light;
+}
+
+/* Force all text elements to use our colors */
+p, h1, h2, h3, h4, h5, h6, span, div, label, button, a {
+  color: var(--foreground) ;
+}
+
+/* Force all containers to use our background */
+main, section, article, aside, nav, header, footer, .container {
+  background-color: var(--background) !important;
+  color: var(--foreground) !important;
 }
 
 /* Logo/Title display font */
@@ -47,6 +92,8 @@ body {
 .border-border { border-color: var(--border); }
 .text-accent { color: var(--accent); }
 .bg-accent { background-color: var(--accent); }
+.bg-muted { background-color: var(--muted); }
+.text-white { color: var(--background); }
 
 /* Nice text selection */
 ::selection {
@@ -54,13 +101,13 @@ body {
   color: white;
 }
 
-/* Glass (liquid) container - adjusted for readability */
+/* Glass (liquid) container - adjusted for light theme */
 .glass-card {
-  background: rgba(255, 255, 255, 0.464);
-  border: 1px solid rgba(230, 224, 216, 0.9);
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(212, 181, 192, 0.6);
   -webkit-backdrop-filter: blur(18px) saturate(140%);
   backdrop-filter: blur(18px) saturate(140%);
-  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 32px rgba(125, 21, 56, 0.1);
 }
 
 /* Glass effect for header */
@@ -68,38 +115,38 @@ body {
   backdrop-filter: blur(20px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
   background: linear-gradient(135deg, 
-    rgba(255, 255, 255, 0.1), 
-    rgba(255, 255, 255, 0.05)
+    rgba(255, 255, 255, 0.8), 
+    rgba(250, 248, 245, 0.6)
   ) !important;
-  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border: 1px solid rgba(184, 134, 11, 0.2) !important;
   box-shadow: 
-    0 8px 32px 0 rgba(31, 38, 135, 0.15),
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.2) !important;
+    0 8px 32px 0 rgba(125, 21, 56, 0.08),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.3) !important;
   border-radius: 12px !important;
 }
 
 @media (prefers-color-scheme: dark) {
   .glass-card {
-    background: rgba(151, 148, 144, 0.6);
-    border-color: rgba(80, 76, 70, 0.8);
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+    background: rgba(254, 252, 250, 0.9);
+    border-color: rgba(200, 162, 176, 0.7);
+    box-shadow: 0 12px 36px rgba(125, 21, 56, 0.12);
   }
   
   .glass {
     background: linear-gradient(135deg, 
-      rgba(255, 255, 255, 0.05), 
-      rgba(255, 255, 255, 0.02)
+      rgba(255, 255, 255, 0.85), 
+      rgba(245, 242, 239, 0.7)
     ) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(212, 175, 55, 0.25) !important;
     box-shadow: 
-      0 8px 32px 0 rgba(0, 0, 0, 0.3),
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.1) !important;
+      0 8px 32px 0 rgba(125, 21, 56, 0.1),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.4) !important;
   }
 }
 
 /* High-contrast form controls */
-.form-label { color: #374151; }
-@media (prefers-color-scheme: dark) { .form-label { color: #e5e7eb; } }
+.form-label { color: #7d1538; }
+@media (prefers-color-scheme: dark) { .form-label { color: #6b1229; } }
 
 .form-select {
   display: block;
@@ -107,9 +154,9 @@ body {
   height: 2.5rem; /* 40px */
   padding: 0 0.75rem;
   border-radius: 0.5rem;
-  border: 1px solid #d1d5db;
+  border: 1px solid #d4b5c0;
   background-color: #ffffff;
-  color: #416ac4;
+  color: #7d1538;
   -webkit-appearance: none;
   appearance: none;
   transition: box-shadow 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
@@ -118,9 +165,9 @@ body {
 
 @media (prefers-color-scheme: dark) {
   .form-select {
-    border-color: #4b5563;
-    background-color: rgba(255,255,255,0.08);
-    color: #f3f4f6;
+    border-color: #c8a2b0;
+    background-color: #fefcfa;
+    color: #6b1229;
   }
 }
 
@@ -138,12 +185,12 @@ input[type="checkbox"] { accent-color: var(--accent); }
   height: 3.5rem;
   padding: 1.25rem 2.5rem 0.5rem 0.75rem;
   border-radius: 0.5rem;
-  border: 1px solid #d1d5db;
+  border: 1px solid #d4b5c0;
   background-color: #ffffff;
   background-position: right 0.5rem center;
   background-repeat: no-repeat;
   background-size: 1.5em 1.5em;
-  color: #f7f4ef;
+  color: #7d1538;
   -webkit-appearance: none;
   appearance: none;
   transition: all 0.2s ease;
@@ -161,7 +208,7 @@ input[type="checkbox"] { accent-color: var(--accent); }
   left: 0.75rem;
   top: 1.75rem;
   transform: translateY(-50%);
-  color: #9ca3af;
+  color: #8b5a6b;
   font-size: 0.875rem;
   font-weight: 400;
   transition: all 0.15s ease-in-out;
@@ -183,18 +230,18 @@ input[type="checkbox"] { accent-color: var(--accent); }
 
 @media (prefers-color-scheme: dark) {
   .floating-select {
-    border-color: #4b5563;
-    background-color: none;
-    color: #4b5563;
+    border-color: #c8a2b0;
+    background-color: #fefcfa;
+    color: #6b1229;
   }
   
   .floating-label {
-    color: #6b7280;
+    color: #7a4d5e;
   }
   
   .floating-select:focus + .floating-label,
   .floating-select.has-value + .floating-label {
-    background: none;
+    background: #fefcfa;
     color: var(--accent);
   }
 }

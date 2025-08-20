@@ -1,38 +1,39 @@
 # 👕 Digital Wardrobe
 
-Dijital gardırop uygulaması - kıyafetlerinizi organize edin ve yönetin!
+A digital wardrobe application - organize and manage your clothes!
 
-## 📋 Proje Hakkında
+## 📋 About the Project
 
-Digital Wardrobe, kişisel gardırobunuzu dijital ortamda yönetmenizi sağlayan modern bir web uygulamasıdır. Kıyafetlerinizi kategorilere ayırabilir, mevsimsel özelliklerine göre filtreleyebilir ve hangi kıyafetlerin nerede olduğunu takip edebilirsiniz.
+Digital Wardrobe is a modern web application that allows you to manage your personal wardrobe digitally. You can categorize your clothes, filter them by seasonal properties, and track where your clothes are located.
 
-## ✨ Özellikler
+## ✨ Features
 
-- 🎯 **Kategori Bazlı Organizasyon**: Üst, alt, çanta ve ayakkabı kategorileri
-- 🌡️ **Kalınlık Filtresi**: İnce, orta, kalın seçenekleri
-- 📏 **Boy/Uzunluk Filtresi**: Kısa, orta, uzun seçenekleri
-- 🌅 **Mevsim Filtresi**: İlkbahar, yaz, sonbahar, kış
-- 📍 **Konum Takibi**: Kıyafetlerinizin nerede olduğunu bilin (ev, iş, okul vb.)
-- 🎨 **Modern UI**: Tailwind CSS ile tasarlanmış kullanıcı dostu arayüz
-- ⚡ **Hızlı Performans**: Next.js 15 ve React 19 ile geliştirildi
+- 🎯 **Category-Based Organization**: Top, bottom, bag, and shoes categories
+- 👗 **Smart Outfit Generation**: Create complete outfits with dress or top-bottom combinations
+- 🔄 **Interactive Outfit Builder**: Drag and drop or click to select items for your daily outfit
+- 🌡️ **Thickness Filter**: Thin, medium, thick options
+- 📏 **Length Filter**: Short, medium, long options
+- 🌅 **Season Filter**: Spring, summer, autumn, winter
+- 🎨 **Modern UI**: User-friendly interface designed with Tailwind CSS
+- ⚡ **High Performance**: Built with Next.js 15 and React 19
 
-## 🛠️ Teknolojiler
+## 🛠️ Technologies
 
 - **Frontend**: Next.js 15, React 19, TypeScript
 - **Styling**: Tailwind CSS 4
-- **Veri**: JSON dosyası tabanlı depolama
-- **Geliştirme**: ESLint, Turbopack
+- **Data**: JSON file-based storage
+- **Development**: ESLint, Turbopack
 
-## 🚀 Kurulum
+## 🚀 Installation
 
-1. **Projeyi klonlayın**
+1. **Clone the project**
 
    ```bash
    git clone https://github.com/sedataskan/sonatswardrobe.git
    cd sonatswardrobe/digitalwardrobe
    ```
 
-2. **Bağımlılıkları yükleyin**
+2. **Install dependencies**
 
    ```bash
    npm install
@@ -42,48 +43,60 @@ Digital Wardrobe, kişisel gardırobunuzu dijital ortamda yönetmenizi sağlayan
    pnpm install
    ```
 
-3. **Geliştirme sunucusunu başlatın**
+3. **Start the development server**
 
    ```bash
    npm run dev
-   # veya
+   # or
    yarn dev
-   # veya
+   # or
    pnpm dev
    ```
 
-4. **Tarayıcınızda açın**
+4. **Open in your browser**
 
-   [http://localhost:3000](http://localhost:3000) adresine gidin
+   Go to [http://localhost:3000](http://localhost:3000)
 
-## 📁 Proje Yapısı
+## 📁 Project Structure
 
 ```
 digitalwardrobe/
 ├── public/
 │   ├── data/
-│   │   └── items.json          # Kıyafet verileri
-│   ├── *.svg                   # Kategori ikonları
+│   │   └── items.json          # Clothing data
+│   ├── *.svg                   # Category icons
 │   └── ...
 ├── src/
-│   └── app/
-│       ├── globals.css         # Global stiller
-│       ├── layout.tsx          # Ana layout
-│       └── page.tsx            # Ana sayfa komponenti
+│   ├── app/
+│   │   ├── globals.css         # Global styles
+│   │   ├── layout.tsx          # Main layout
+│   │   └── page.tsx            # Main page component
+│   ├── components/
+│   │   ├── Filters.tsx         # Filter component
+│   │   ├── ItemCard.tsx        # Individual item display
+│   │   ├── ItemPickerModal.tsx # Item selection modal
+│   │   ├── Navbar.tsx          # Navigation bar
+│   │   ├── OutfitCard.tsx      # Outfit item display
+│   │   ├── OutfitSection.tsx   # Today's outfit section
+│   │   └── WardrobeGrid.tsx    # Main grid layout
+│   ├── constants/
+│   │   └── index.ts            # Type definitions and constants
+│   └── utils/
+│       └── index.ts            # Utility functions
 ├── package.json
 ├── next.config.ts
 ├── tailwind.config.ts
 └── tsconfig.json
 ```
 
-## 💾 Veri Yapısı
+## 💾 Data Structure
 
-Her kıyafet öğesi şu özelliklere sahiptir:
+Each clothing item has the following properties:
 
 ```typescript
 interface Item {
-  id: string; // Benzersiz tanımlayıcı
-  name: string; // Kıyafet adı
+  id: string; // Unique identifier
+  name: string; // Clothing name
   type:
     | "shirt"
     | "pants"
@@ -101,56 +114,62 @@ interface Item {
     | "shorts"
     | "hoodie"
     | "coat";
-  category: "top" | "bottom" | "bag" | "shoes";
+  category: "top" | "bottom" | "bag" | "shoes" | "dress";
   thickness: "thin" | "medium" | "thick";
   length: "short" | "medium" | "long";
   season: ("spring" | "summer" | "autumn" | "winter")[];
-  location: string; // Konum (ev, iş, okul vb.)
-  image: string; // Görsel yolu
+  location: string; // Location (home, work, school, etc.)
+  image: string; // Image path
 }
 ```
 
-## 🎯 Kullanım
+## 🎯 How to Use
 
-1. **Kıyafetleri Görüntüleme**: Ana sayfada tüm kıyafetlerinizi kategoriler halinde görün
-2. **Filtreleme**: Sol taraftaki filtre seçeneklerini kullanarak kıyafetleri süzün
-3. **Arama**: Kalınlık, uzunluk, mevsim ve konuma göre arama yapın
-4. **Kategori Seçimi**: Belirli bir kategoriyi seçerek odaklanın
+1. **View Clothing Items**: See all your clothes categorized on the main page
+2. **Filtering**: Use the filter options on the left to narrow down items
+3. **Search**: Search by thickness, length, season, and location
+4. **Category Selection**: Focus on a specific category
+5. **Outfit Generation**:
+   - Select "Dress" for dress-based outfits
+   - Select "Top + Bottom" for traditional combinations
+   - Use "Randomize" to get new suggestions
+6. **Manual Selection**: Click on outfit slots or drag items to build custom outfits
+7. **Today's Outfit**: View and manage your selected outfit in the right panel
 
-## 🛠️ Geliştirme Komutları
+## 🛠️ Development Commands
 
 ```bash
-# Geliştirme sunucusunu başlat (Turbopack ile)
+# Start development server (with Turbopack)
 npm run dev
 
-# Üretim için derle
+# Build for production
 npm run build
 
-# Üretim sunucusunu başlat
+# Start production server
 npm run start
 
-# Kod kalitesini kontrol et
+# Check code quality
 npm run lint
 ```
 
-## 🔮 Gelecek Özellikler
+## 🔮 Future Features
 
-- [ ] Kombin önerileri
-- [ ] Mobil uygulama desteği
-- [ ] Kıyafet paylaşım özelliği
+- [ ] Mobile app support
+- [ ] Clothing sharing features
+- [ ] Photo upload for custom items
 
-## 🤝 Katkıda Bulunma
+## 🤝 Contributing
 
-1. Bu projeyi fork edin
-2. Feature branch'i oluşturun (`git checkout -b feature/AmazingFeature`)
-3. Değişikliklerinizi commit edin (`git commit -m 'Add some AmazingFeature'`)
-4. Branch'inizi push edin (`git push origin feature/AmazingFeature`)
-5. Pull Request oluşturun
+1. Fork this project
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Create a Pull Request
 
-## 📝 Lisans
+## 📝 License
 
-Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için `LICENSE` dosyasına bakın.
+This project is licensed under the MIT License. See the `LICENSE` file for details.
 
-## 👨‍💻 Geliştirici
+## 👨‍💻 Developer
 
-made with ❤️ by [@sedataskan](https://github.com/sedataskan)
+Made with ❤️ by [@sedataskan](https://github.com/sedataskan)
